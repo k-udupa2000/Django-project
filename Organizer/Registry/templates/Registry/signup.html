@@ -25,8 +25,6 @@
                 </div>
                 <div class = "card-body">
 		<form method="POST">
-        		{% csrf_token %}
-        		{{ form.as_p }}
 
                         <div class = "input-group form-group">
                             <div class = "input-group-prepend">
@@ -51,6 +49,12 @@
                                 <span class = "input-group-text"><i class="fas fa-phone-square" style = "color:black;"></i></i></span>
                             </div>
                             <input type="text" class = "form-control" placeholder = "Secondary contact number">
+                        </div>
+                        <div class = "input-group form-group">
+                            <div class = "input-group-prepend">
+                                <span class = "input-group-text"><i class="fas fa-at" style = "color:black;"></i></i></span>
+                            </div>
+                            <input type="text" class = "form-control" placeholder = "Email Id">
                         </div>
                         <!--
                         <div class="row align-items-center remember">

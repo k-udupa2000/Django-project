@@ -14,8 +14,15 @@ class Student(models.Model):
 
     lastAttended = models.DateTimeField(verbose_name = "Last class attended")
 
-class Meta:
-    ordering = ("-studentName",)
-
     def __str__(self):
         return self.studentName
+
+'''
+class Users(models.Model):
+
+    username = models.CharField(max_length=250, default = "", verbose_name = "User Name")
+    password = models.CharField(max_length=100, default="",verbose_name = "Password")
+
+    def __str__(self):
+        return self.username
+'''

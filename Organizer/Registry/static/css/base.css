@@ -1,0 +1,48 @@
+html, body{
+    width: 100%;
+}
+
+.container-fluid{
+    padding-left: 0%;
+    padding-right: 0%; 
+}
+
+.navbar-brand{
+    font-size: calc(5vh);
+}
+
+.nav-link{
+    font-size: calc(3vh);
+}
+
+.footer{
+    position: relative;
+}
+
+#body{
+    height: calc(76vh);
+    padding-bottom: 0%;
+    margin-bottom: 0%; 
+}
+
+.footer{
+    width: 100%;
+}
+
+#contactLinks{
+    color:white;
+    font-size: 30px;
+}
+
+#contributors{
+    color:white;
+    word-wrap: break-word;
+    font-size: calc(1.5vh);
+}
+
+@media (min-width: 768px){
+    #title{
+        padding-left: calc(1vw);
+        padding-right: calc(2vw);
+    }
+}
