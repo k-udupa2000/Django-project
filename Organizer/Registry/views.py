@@ -4,8 +4,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm
+from .forms import LoginForm, RegistrationForm
  
+from .models import storeData
 
 def home(request):
     return render(request, 'home.html')
@@ -26,29 +27,27 @@ def login(request):
         if form.is_valid():
             username = request.POST.get('username')
             password = request.POST.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                auth_login(request, user)
-                print("Successful")
-                return redirect('/home/')
-            else:
-                print('User not found')
+            #user = authenticate(username=username, password=password)
+            data = storeData.objects.all()
+            for users in data:
+                if users.username == username and users.password == password:
+                    print("Successful")
+                    return redirect('/home/')
+            print('User not found')
         else:
             print(form.errors)
     else:
         form = LoginForm()
     return render(request, 'Registry/login.html', {"form": form})
 
-'''
 def register(request):
     if request.method =='POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
+            #storeData.objects.create(user = new_user)
             form.save()
-            return redirect('register/app')
+            return redirect('/home/')
     else:
         form = RegistrationForm()
-
-        args = {'form': form}
-        return render(request, 'Registry/signup.html', args)
-'''
+    args = {'form': form}
+    return render(request, 'Registry/signup.html', args)

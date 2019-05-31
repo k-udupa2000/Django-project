@@ -26,3 +26,11 @@ class Users(models.Model):
     def __str__(self):
         return self.username
 '''
+
+class storeData(models.Model):
+    username = models.CharField(max_length=100, default = "", verbose_name = "Student Name")
+    phone_number = models.CharField(max_length=11, verbose_name = "Phone Number")
+    password = models.CharField(max_length = 30, verbose_name = "Password")
+    no_of_class_attended = models.IntegerField(default = 0)
+    fee_status = models.BooleanField(default = False)
+    validated = models.BooleanField(default = False)

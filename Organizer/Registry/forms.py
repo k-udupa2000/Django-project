@@ -1,8 +1,9 @@
 from django import forms
 from django.contrib.auth.models import User
+from .models import storeData
 
 class LoginForm(forms.Form):
-    model = User
+    model = storeData
     username = forms.CharField(max_length = 100,)
     password = forms.CharField(widget = forms.PasswordInput,)
 
@@ -33,3 +34,11 @@ class RegistrationForm(forms.Form):
                 user.save()
             return user
 '''
+
+class RegistrationForm(forms.ModelForm):
+    username = forms.CharField()
+    password = forms.CharField(widget = forms.PasswordInput)
+    phone_number = forms.CharField()
+    class Meta:
+        model = storeData
+        fields = ('username', 'phone_number', 'password',)
